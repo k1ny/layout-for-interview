@@ -106,6 +106,7 @@ body {
     text-align: center;
     width: 100%;
 }
+
 .section-choice span {
     @media screen and (max-width: 1280px) {
         font-weight: 400;
@@ -566,8 +567,7 @@ th {
 
 }
 
-.grid-container__item::before {
-    background: url("/assets/image 23.png") no-repeat center, #E9DED4;
+.grid-container__item-group::before, .grid-container__item::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -578,6 +578,24 @@ th {
     top: 0;
     mix-blend-mode: color-burn;
 }
+
+.grid-container__item-group::before {
+    background: url("/assets/image 23.png") no-repeat center, #E9DED4;
+    @media screen and (max-width: 1280px) {
+        background: none;
+    }
+}
+
+.grid-container__item::before {
+    background: url("/assets/image 23.png") no-repeat center, #E9DED4;
+}
+
+@media screen and (max-width: 1280px) {
+    .grid-container__item-group .grid-container__item::before {
+        background: none;
+    }
+}
+
 .grid-container__item-group {
     @media screen and (max-width: 1280px) {
         background-image: url("/assets/Cooper Union Stamp Paper.png");
@@ -590,12 +608,14 @@ th {
     background-image: none;
     display: flex;
     gap: 20px;
+    position: relative;
 }
 
 .grid-container > .grid-container__item:nth-child(2) {
     grid-column: 3 / 4;
     grid-row: 1/3;
 }
+
 .grid-container > .grid-container__item:nth-child(5) {
     grid-column: 2 / 4;
     grid-row: 3;
@@ -673,12 +693,13 @@ th {
     width: 446px;
 }
 
-.section-stages__carousel-container__choice{
+.section-stages__carousel-container__choice {
     display: flex;
     gap: 6px;
 
 }
-.section-stages__carousel-buttons{
+
+.section-stages__carousel-buttons {
     @media screen and (max-width: 1280px) {
         display: flex;
         justify-content: center;
@@ -689,17 +710,19 @@ th {
     display: none;
 }
 
-.carousel-circle{
-    width:10px;
-    height:10px;
+.carousel-circle {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: #D9D9D9;
     transition: 0.3s background-color ease-in-out;
 }
-.carousel-circle.highlight{
+
+.carousel-circle.highlight {
     background-color: #313131;
 }
-.section-stages__carousel-button{
+
+.section-stages__carousel-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -711,16 +734,20 @@ th {
     cursor: pointer;
     transition: 0.3s background-color ease-in-out;
 }
-.section-stages__carousel-button:hover{
+
+.section-stages__carousel-button:hover {
     background-color: #FBCE51;
 }
-.section-stages__carousel-button__right-arrow{
+
+.section-stages__carousel-button__right-arrow {
     margin-left: 4px;
 }
-.section-stages__carousel-button__left-arrow{
+
+.section-stages__carousel-button__left-arrow {
     transform: rotate(180deg);
     margin-left: 4px;
 }
+
 .section-tournament {
     @media screen and (max-width: 1280px) {
         display: flex;
@@ -731,14 +758,17 @@ th {
     display: grid;
     grid-template-columns: 1fr;
 }
+
 .section-tournament > *:nth-child(1) {
     grid-column: 1/2;
     grid-row: 1/2;
 }
+
 .section-tournament > *:nth-child(2) {
     grid-column: 1/3;
     grid-row: 2/3;
 }
+
 .section-tournament > *:nth-child(3) {
     grid-column: 2/3;
     grid-row: 1/2;
